@@ -1,5 +1,7 @@
 # Elimination Game - React App
 
+- [DEMO LINK](https://vinniej-2k20.github.io/elimination-game-react/)
+
 Welcome to the Elimination Game.
 
 Rules:
