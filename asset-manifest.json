@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/elimination-game-react/static/css/main.7956c2f3.chunk.css",
+    "main.js": "/elimination-game-react/static/js/main.0feff7be.chunk.js",
+    "main.js.map": "/elimination-game-react/static/js/main.0feff7be.chunk.js.map",
+    "runtime-main.js": "/elimination-game-react/static/js/runtime-main.116c5d3f.js",
+    "runtime-main.js.map": "/elimination-game-react/static/js/runtime-main.116c5d3f.js.map",
+    "static/js/2.f37725f4.chunk.js": "/elimination-game-react/static/js/2.f37725f4.chunk.js",
+    "static/js/2.f37725f4.chunk.js.map": "/elimination-game-react/static/js/2.f37725f4.chunk.js.map",
+    "index.html": "/elimination-game-react/index.html",
+    "static/css/main.7956c2f3.chunk.css.map": "/elimination-game-react/static/css/main.7956c2f3.chunk.css.map",
+    "static/js/2.f37725f4.chunk.js.LICENSE.txt": "/elimination-game-react/static/js/2.f37725f4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.116c5d3f.js",
+    "static/js/2.f37725f4.chunk.js",
+    "static/css/main.7956c2f3.chunk.css",
+    "static/js/main.0feff7be.chunk.js"
+  ]
+}
