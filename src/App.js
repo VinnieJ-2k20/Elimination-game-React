@@ -77,7 +77,7 @@ export class App extends React.Component {
 
         <section className="App__rules">
           <button
-            className="App__start-button"
+            className="App__button"
             type="button"
             onClick={this.toggleRules}
           >
@@ -95,12 +95,13 @@ export class App extends React.Component {
 
         {gameStarted && (
           <section className="App__message">
-            {gameLog[gameLog.length - 1]}
+            {gameLog[0]}
           </section>
         )}
 
         {gameEnded && (
           <button
+            className="App__button"
             type="button"
             onClick={this.restart}
           >
