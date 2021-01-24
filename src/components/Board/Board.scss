@@ -1,0 +1,52 @@
+$boxSize: 40px;
+$boxMargin: 20px;
+
+.Board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: $boxMargin $boxMargin;
+  padding: $boxMargin;
+  border: 2px solid black;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__box {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    width: $boxSize;
+    height: $boxSize;
+    align-items: center;
+    font-size: 24px;
+    border: 1px solid blue;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &--crossed {
+      text-decoration: line-through;
+      background-color: #b96060;
+    }
+
+    &--available {
+      background-color:rgb(73, 177, 73);
+    }
+
+    &--available-big {
+      transform: scale(1.2);
+    }
+
+    &--unavailable {
+      background-color: grey;
+    }
+
+    &--final {
+      background-color: gold;
+    }
+  }
+}
