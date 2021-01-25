@@ -68,7 +68,14 @@ export class App extends React.Component {
 
   render() {
     const {
-      areRulesVisible, areSettingsVisible, boxes, turn, gameStarted, gameLog, playerStarts, gameEnded,
+      areRulesVisible,
+      areSettingsVisible,
+      boxes,
+      turn,
+      gameStarted,
+      gameLog,
+      playerStarts,
+      gameEnded,
     } = this.state;
 
     return (
