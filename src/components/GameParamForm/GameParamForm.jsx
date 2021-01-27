@@ -20,23 +20,23 @@ export class GameParamForm extends React.Component {
   handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'playerStarts') {
-      this.setState({
-        playerStarts: value === 'true',
-      })
-      return;
-    }
-
     this.setState({
       [name]: +value, 
     });
+  }
+
+  handleRadio = (event) => {
+    const { value } = event.target;
+
+    this.setState({
+      playerStarts: value === 'true',
+    })
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     const { onStart } = this.props;
     const { boxes, turn, playerStarts } = this.state;
-    console.log(playerStarts);
 
     onStart(boxes, turn, playerStarts);
   }
@@ -104,7 +104,7 @@ export class GameParamForm extends React.Component {
             id="playerStarts"
             value="true"
             checked={playerStarts}
-            onChange={this.handleChange}
+            onChange={this.handleRadio}
           />
         </label>
         <label htmlFor="computerStarts">
@@ -115,7 +115,7 @@ export class GameParamForm extends React.Component {
             id="computerStarts"
             value="false"
             checked={!playerStarts}
-            onChange={this.handleChange}
+            onChange={this.handleRadio}
           />
         </label>
         <br />

@@ -15,6 +15,7 @@ export class Board extends React.Component {
   state = {
     firstAvailable: 1,
     playerTurn: true,
+    activeBoxes: [],
   }
 
   componentDidMount = () => {
@@ -92,7 +93,11 @@ export class Board extends React.Component {
 
     if (boxesLeft <= maxTurnSize) {
       onTurn(turn + sorry);
+      this.setState(state => ({
+        firstAvailable: state.firstAvailable + turnValue + 1,
+      }));
       onGameEnd();
+      return;
     } else {
       onTurn(turn + toValue);
     }
@@ -104,32 +109,27 @@ export class Board extends React.Component {
   }
 
   handleHoverEnter = (event, box) => {
-    if (!event.target.classList.contains('Board__box--available')) {
-      return;
-    }
+    const { firstAvailable } = this.state;
+    const { maxTurnSize } = this.props;
+    const boxNum = box + 1;
+    const maxNum = firstAvailable + maxTurnSize - 1;
+    console.log('box: ', boxNum);
+    console.log('max: ', maxNum);
 
-    const available = document.querySelectorAll('.Board__box--available');
-    available.forEach(siblingBox => {
-      if (+siblingBox.textContent <= box + 1) {
-        siblingBox.classList.add('Board__box--available-big');
-      }
-    })
+    if (boxNum >= firstAvailable && boxNum <= maxNum) {
+      this.setState({
+        activeBoxes: [firstAvailable, boxNum],
+      })
+    }
   }
 
-  handleHoverLeave = (event, box) => {
-    if (!event.target.classList.contains('Board__box--available')) {
-      return;
-    }
-
-    const available = document.querySelectorAll('.Board__box--available');
-    available.forEach(siblingBox => {
-      siblingBox.classList.remove('Board__box--available-big');
-    })
+  handleHoverLeave = () => {
+    this.setState({ activeBoxes: [] })
   }
 
   render() {
     const { board, maxTurnSize } = this.props;
-    const { firstAvailable } = this.state;
+    const { firstAvailable, activeBoxes } = this.state;
     const minAvailable = firstAvailable - 1;
     const maxAvailable = firstAvailable - 1 + maxTurnSize;
 
@@ -142,6 +142,8 @@ export class Board extends React.Component {
               'Board__box--available': (
                 box >= minAvailable && box < maxAvailable
               ),
+              'Board__box--available-big': (box + 1 >= activeBoxes[0]
+                && box + 1 <= activeBoxes[1]),
               'Board__box--unavailable': box >= maxAvailable,
               'Board__box--final': box === board.length - 1,
             })}
@@ -153,7 +155,7 @@ export class Board extends React.Component {
               this.handleHoverEnter(event, box);
             }}
             onMouseLeave={(event) => {
-              this.handleHoverLeave(event, box);
+              this.handleHoverLeave();
             }}
           >
             {box + 1}

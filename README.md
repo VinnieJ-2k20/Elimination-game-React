@@ -2,6 +2,8 @@
 
 - [DEMO LINK](https://vinniej-2k20.github.io/elimination-game-react/)
 
+Technologies used: HTML5/CSS3/JS, React, SCSS
+
 Welcome to the Elimination Game.
 
 Rules:
